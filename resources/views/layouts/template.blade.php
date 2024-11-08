@@ -63,7 +63,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Manajemen Keuangan</span>
+                <span class="brand-text font-weight-light">Lapora harian</span>
             </a>
             <!-- Sidebar -->
             <div class="sidebar">
@@ -91,7 +91,7 @@
                             <a href="{{route('pemasukan.index')}}" class="nav-link {{ ($title==='Pemasukan')?'active':''}}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                   pemasukan
+                                   pemasukan laporan
                                 </p>
                             </a>
                         </li>

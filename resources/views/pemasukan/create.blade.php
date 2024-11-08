@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('judulh1','pemasukan')
+@section('judulh1', 'Pemasukan')
 
 @section('konten')
 <div class="col-md-6">
@@ -16,25 +16,25 @@
 
     <div class="card card-success">
         <div class="card-header">
-            <h3 class="card-title">Tambah pemasukan</h3>
+            <h3 class="card-title">Tambah Laporan</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
         <form action="{{ route('pemasukan.store') }}" method="POST">
             @csrf
-            <div class=" card-body">
+            <div class="card-body">
                 <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder="">
-                </div>
-                <div class=" card-body">
-                <div class="form-group">
-                    <label for="tanggal_pemasukan">Tanggal Pemasukan</label>
-                    <input type="date" class="form-control" id="tanggal_pemasukan" name="tanggal_pemasukan" placeholder="">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="keterangan">Keterangan</label>
-                    <input type="text" class="form-control" id="keterangan" name="keterangan">
+                    <label for="pelaksanaan">Pelaksanaan</label>
+                    <input type="date" class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="lokasi">Lokasi</label>
+                    <input type="text" class="form-control" id="lokasi" name="lokasi">
+                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">

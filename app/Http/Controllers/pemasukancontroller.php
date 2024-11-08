@@ -22,19 +22,19 @@ class pemasukancontroller extends Controller
     public function create():View
     {
         return view('pemasukan.create')->with([
-            "title" => "Tambah Data "
+            "title" => "Tambah laporan"
         ]);
     }
     public function store(Request $request):RedirectResponse
     {
         $request->validate([
-            "nama"=>"required",
-            "tanggak_pemasukan"=>"required",
-            "keterangan"=>"required",
+            "pekerjaan"=>"required",
+            "pelaksanaan"=>"required",
+            "lokasi"=>"required",
         ]);
         pemasukan::create($request->all());
 
-    return redirect()->route('pemasukan.index')->with('success', 'data Berhasil dimasukan');
+    return redirect()->route('pemasukan.index')->with('success', 'laporan Berhasil dimasukan');
     }
     public function edit(pemasukan $pemasukan):View
     {
@@ -46,12 +46,12 @@ class pemasukancontroller extends Controller
     public function update(pemasukan $pemasukan, Request $request):RedirectResponse
     {
         $request->validate([
-            "nama"=>"required",
-            "tanggal_pemasukan"=>"required",
-            "keterangan"=>"required",
+            "pekerjaan"=>"required",
+            "pelaksanaan"=>"required",
+            "lokasi"=>"required",
         ]);
         $pemasukan->update($request->all());
-        return redirect()->route('pemasukan.index')->with('updated','pemasukan Berhasil Diubah');
+        return redirect()->route('pemasukan.index')->with('updated','laporan Berhasil Diubah');
     }
     public function show():View
     {
@@ -64,6 +64,6 @@ class pemasukancontroller extends Controller
     public function destroy($id):RedirectResponse
     {
         pemasukan::where('id',$id)->delete();
-        return redirect()->route('pemasukan.index')->with('delete','pemasukan Berhasil Dihapus');
+        return redirect()->route('pemasukan.index')->with('delete','laporan Berhasil Dihapus');
 }
 }

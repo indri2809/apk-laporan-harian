@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('judulh1', 'Profil')
+@section('judulh1','CATATAN LAPORAN HARIAN')
 @section('konten') 
 <div class="col-lg-12">
     <div class="card">
@@ -10,17 +10,9 @@
         </div>
         <div class="card-body">
             <div class="dashboard-image text-center">
-                <img src="{{ asset('dist/img/Keuangan Daerah.jpg') }}" class="img-fluid mb-4" alt="Keuangan Daerah" />
+                <img src="{{ asset('dist/img/et.avif') }}" class="img-fluid mb-4" alt="Keuangan Daerah" />
                 <p class="mt-2">
-                    Manajemen keuangan merupakan kegiatan yang mencakup perencanaan, penganggaran, pemeriksaan, pengelolaan, pengendalian, pencarian, dan penyimpanan dana yang dimiliki oleh perusahaan. Demi kelancaran dan keberlangsungan bisnis dalam jangka waktu lama, diperlukan manajemen keuangan yang dilakukan secara matang.
-                </p>
-                <h5 class="mt-4">Fungsi Manajemen Keuangan:</h5>
-                <ul class="list-unstyled">
-                    <li><i class="fas fa-check-circle"></i> Mengelola keuangan perusahaan</li>
-                    <li><i class="fas fa-check-circle"></i> Mengendalikan keuangan perusahaan</li>
-                    <li><i class="fas fa-check-circle"></i> Memeriksa keuangan perusahaan</li>
-                    <li><i class="fas fa-check-circle"></i> Melaporkan keuangan perusahaan</li>
-                </ul>
+
             </div>
         </div>
     </div>

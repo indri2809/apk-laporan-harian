@@ -27,4 +27,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('pemasukans');
     }
+    Schema::table('pemasukans', function (Blueprint $table) {
+        $table->string('foto')->nullable()->after('lokasi');
+    });
 };

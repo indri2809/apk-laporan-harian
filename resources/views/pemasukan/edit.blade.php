@@ -15,27 +15,27 @@
     @endif
     <div class="card card-warning">
         <div class="card-header">
-            <h3 class="card-title">ubah pemasukan </h3>
+            <h3 class="card-title">ubah laporan </h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('pemasukan.update',$warga->id) }}" method="POST">
+        <form action="{{ route('pemasukan.update',$pemasukan->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class=" card-body">
                 <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" placeholder=""
-                        value="{{$pemasukan->nama}}">
+                    <label for="pekerjaan">pekerjaan</label>
+                    <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder=""
+                        value="{{$pemasukan->pekerjaan}}">
                 </div>
                 <div class="form-group">
-                    <label for="tanggal_pemasukan">Tanggal Pemasukan</label>
-                    <input type="text" class="form-control" id="tanggal_pemasukan" name="tanggal_pemasukan" placeholder=""
-                        value="{{$pemasukan->tanggal_pemasukan}}">
+                    <label for="pelaksanaan">pelaksanaan</label>
+                    <input type="text" class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder=""
+                        value="{{$pemasukan->pelaksanaan}}">
                 </div>
                 <div class="form-group">
-                    <label for="keterangan">Keterangan</label>
- <input type="text" class="form-control" id="keterangan" name="keterangan" value="{{$pemasukan->keterangan}}">
+                    <label for="lokasi">lokasi</label>
+ <input type="text" class="form-control" id="lokasi" name="lokasi" value="{{$pemasukan->lokasi}}">
                 </div>
 
                 

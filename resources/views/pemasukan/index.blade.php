@@ -8,15 +8,15 @@
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 @endsection
 
-@section('judulh1', 'Pemasukan Keuangan')
+@section('judulh1', 'EKA MAS TUNGGAL')
 
 @section('konten')
 <div class="col-md-12">
     <div class="card card-info">
         <div class="card-header">
-            <h2 class="card-title">Pemasukan Keuangan</h2>
+            <h2 class="card-title">catataan laporan harian</h2>
             <a type="button" class="btn btn-success float-right" href="{{ route('pemasukan.index') }}">
-                <i class="fas fa-plus"></i> Tambah Pemasukan
+                <i class="fas fa-plus"></i> Tambahlaporan
             </a>
         </div>
         <!-- /.card-header -->
@@ -25,9 +25,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Tanggal Pemasukan</th>
-                        <th>Keterangan</th>
+                        <th>pekerjaan</th>
+                        <th>pelaksanaan</th>
+                        <th>lokasi</th>
+                        <th>foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -35,9 +36,16 @@
                     @foreach($data as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $dt->nama }}</td>
-                        <td>{{ $dt->tanggal_pemasukan }}</td>
-                        <td>{{ $dt->keterangan }}</td>
+                        <td>{{ $dt->pekerjaan }}</td>
+                        <td>{{ $dt->pelaksanaan }}</td>
+                        <td>{{ $dt->lokasi }}</td>
+                        <td>
+                @if($dt->foto)
+                    <img src="{{ asset('storage/fotos/' . $dt->foto) }}" width="80" alt="Foto">
+                @else
+                    <span>No Photo</span>
+                @endif
+            </td>
                         <td>
                             <div class="btn-group">
                                 <form action="{{ route('pemasukan.destroy', $dt->id) }}" method="POST">
