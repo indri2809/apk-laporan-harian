@@ -91,18 +91,11 @@
                             <a href="{{route('pemasukan.index')}}" class="nav-link {{ ($title==='Pemasukan')?'active':''}}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                   Pemasukan
+                                   pemasukan
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ ($title==='Peminjam')?'active':''}}">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                   Pengeluaran
-                                </p>
-                            </a>
-                        </li>
+                       
                         
                     </ul>
                 </nav>

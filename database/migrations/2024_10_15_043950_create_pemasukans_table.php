@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->date('tanggal_pemasukan');
-            $table->string('keterangan');
+            $table->string('pekerjaan ');
+            $table->date('pelaksanaan');
+            $table->string('lokasi');
             $table->timestamps();
         });
     }

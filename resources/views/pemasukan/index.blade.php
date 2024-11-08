@@ -15,7 +15,7 @@
     <div class="card card-info">
         <div class="card-header">
             <h2 class="card-title">Pemasukan Keuangan</h2>
-            <a type="button" class="btn btn-success float-right" href="{{ route('pemasukan.create') }}">
+            <a type="button" class="btn btn-success float-right" href="{{ route('pemasukan.index') }}">
                 <i class="fas fa-plus"></i> Tambah Pemasukan
             </a>
         </div>

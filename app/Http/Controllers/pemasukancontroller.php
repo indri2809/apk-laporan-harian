@@ -38,7 +38,7 @@ class pemasukancontroller extends Controller
     }
     public function edit(pemasukan $pemasukan):View
     {
-        return view('oemasukan.edit',compact('pemasukan'))->with([
+        return view('pemasukan.edit',compact('pemasukan'))->with([
             "title" => "ubah pemasukan",
             "data" => pemasukan::all()
         ]);
