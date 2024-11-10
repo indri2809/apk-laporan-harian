@@ -19,4 +19,5 @@ Route::get('/', function () {
         "title"=>"Dashboard"
     ]);
 });
-Route::resource('pemasukan',pemasukancontroller::class)->except('destroy','create','update','edit');
+Route::resource('pemasukan',pemasukancontroller::class)->except('destroy','update','edit');
+Route::resource('pemasukan', PemasukanController::class);

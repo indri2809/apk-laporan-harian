@@ -1,6 +1,5 @@
 @extends('layouts.template')
-@section('judulh1', 'Pemasukan')
-
+@section('judulh1','Admin - Peminjam')
 @section('konten')
 <div class="col-md-6">
     @if ($errors->any())
@@ -13,14 +12,13 @@
         </ul>
     </div>
     @endif
-
     <div class="card card-success">
         <div class="card-header">
-            <h3 class="card-title">Tambah Laporan</h3>
+            <h3 class="card-title">Tambah laporan</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('pemasukan.store') }}" method="POST">
+        <form action="{{ route('pemasukan.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -29,11 +27,15 @@
                 </div>
                 <div class="form-group">
                     <label for="pelaksanaan">Pelaksanaan</label>
-                    <input type="date" class="form-control" id="pelaksanaan" name="pelaksanaan" placeholder="">
+                    <input type="text" class="form-control" id="pelaksanaan" name="pelaksanaan">
                 </div>
                 <div class="form-group">
-                    <label for="lokasi">Lokasi</label>
-                    <input type="text" class="form-control" id="lokasi" name="lokasi">
+                    <label for="lokasi">lokasi</label>
+                    <textarea id="lokasi" name="lokasi" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foto">foto</label>
+                    <input type="file" class="form-control-file" id="foto" name="foto">
                 </div>
             </div>
             <!-- /.card-body -->

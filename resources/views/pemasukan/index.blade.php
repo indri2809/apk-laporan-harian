@@ -6,6 +6,12 @@
 <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 <!-- Toastr -->
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+<style>
+    .table-action-buttons .btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+</style>
 @endsection
 
 @section('judulh1', 'EKA MAS TUNGGAL')
@@ -14,53 +20,52 @@
 <div class="col-md-12">
     <div class="card card-info">
         <div class="card-header">
-            <h2 class="card-title">catataan laporan harian</h2>
-            <a type="button" class="btn btn-success float-right" href="{{ route('pemasukan.index') }}">
-                <i class="fas fa-plus"></i> Tambahlaporan
+            <h2 class="card-title">Catatan Laporan Harian</h2>
+            <a type="button" class="btn btn-success float-right" href="{{ route('pemasukan.create') }}">
+                <i class="fas fa-plus"></i> Tambah Laporan
             </a>
         </div>
-        <!-- /.card-header -->
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>pekerjaan</th>
-                        <th>pelaksanaan</th>
-                        <th>lokasi</th>
-                        <th>foto</th>
+                        <th>Pekerjaan</th>
+                        <th>Pelaksanaan</th>
+                        <th>Lokasi</th>
+                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($data as $dt)
+                    @foreach($pemasukan as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $dt->pekerjaan }}</td>
                         <td>{{ $dt->pelaksanaan }}</td>
                         <td>{{ $dt->lokasi }}</td>
                         <td>
-                @if($dt->foto)
-                    <img src="{{ asset('storage/fotos/' . $dt->foto) }}" width="80" alt="Foto">
-                @else
-                    <span>No Photo</span>
-                @endif
-            </td>
+                            @if($dt->gambar)
+                                <img src="{{ asset('storage/fotos/' . $dt->gambar) }}" width="50" alt="gambar">
+                            @else
+                                <center><i class="fas fa-file-image" style="font-size: 20px; color: gray;"></i></center>
+                            @endif
+                        </td>
                         <td>
-                            <div class="btn-group">
-                                <form action="{{ route('pemasukan.destroy', $dt->id) }}" method="POST">
+                            <div class="btn-group table-action-buttons">
+                                <a class="btn btn-warning" href="{{ route('pemasukan.edit', $dt->id) }}" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="btn btn-success" href="{{ route('pemasukan.show', $dt->id) }}" title="View">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <form action="{{ route('pemasukan.destroy', $dt->id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
+                                    <button type="submit" class="btn btn-danger" title="Delete" onclick="return confirm('Are you sure?')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
-                                <a type="button" class="btn btn-warning" href="{{ route('pemasukan.edit', $dt->id) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a type="button" class="btn btn-success" href="{{ route('pemasukan.show', $dt->id) }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
                             </div>
                         </td>
                     </tr>

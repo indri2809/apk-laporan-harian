@@ -10,5 +10,5 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class pemasukan extends Model
 {
     use HasFactory;
-protected $fillable=['pekerjaan','pelaksana','lokasi'];
+protected $fillable=['pekerjaan','pelaksanaan','lokasi','foto'];
 }

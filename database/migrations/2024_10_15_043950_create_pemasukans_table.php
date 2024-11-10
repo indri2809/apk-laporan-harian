@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
-            $table->string('pekerjaan ');
+            $table->string('pekerjaan');
             $table->date('pelaksanaan');
             $table->string('lokasi');
+            $table->string('foto')->nullable(); // Adding the foto column for the image
             $table->timestamps();
         });
     }
@@ -27,7 +28,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('pemasukans');
     }
-    Schema::table('pemasukans', function (Blueprint $table) {
-        $table->string('foto')->nullable()->after('lokasi');
-    });
 };
