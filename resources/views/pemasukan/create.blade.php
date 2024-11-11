@@ -33,10 +33,6 @@
                     <label for="lokasi">lokasi</label>
                     <textarea id="lokasi" name="lokasi" class="form-control" rows="4"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="foto">foto</label>
-                    <input type="file" class="form-control-file" id="foto" name="foto">
-                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">

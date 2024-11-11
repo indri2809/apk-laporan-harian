@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('pemasukans', function (Blueprint $table) {
             $table->id();
             $table->string('pekerjaan');
-            $table->date('pelaksanaan');
+            $table->string('pelaksanaan');
             $table->string('lokasi');
-            $table->string('foto')->nullable(); // Adding the foto column for the image
             $table->timestamps();
         });
     }

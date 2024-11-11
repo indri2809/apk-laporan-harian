@@ -21,3 +21,5 @@ Route::get('/', function () {
 });
 Route::resource('pemasukan',pemasukancontroller::class)->except('destroy','update','edit');
 Route::resource('pemasukan', PemasukanController::class);
+Route::get('/pemasukan/{id}/edit', [PemasukanController::class, 'edit'])->name('pemasukan.edit');
+Route::put('/pemasukan/{id}', [PemasukanController::class, 'update'])->name('pemasukan.update');

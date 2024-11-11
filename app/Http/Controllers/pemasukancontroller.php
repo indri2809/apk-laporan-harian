@@ -32,16 +32,13 @@ class pemasukancontroller extends Controller
         $request->validate([
             "pekerjaan" => "required",
             "pelaksanaan" => "required",
-            "lokasi" => "required",
-            "foto" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048", // Image validation
+            "lokasi" => "required"
         ]);
 
         $pemasukan = $request->all();
 
         // Handle the image file upload
-        if ($request->hasFile('foto')) {
-            $pemasukan['foto'] = $request->file('foto')->store('uploads', 'public');
-        }
+       
 
         pemasukan::create($pemasukan);
 
@@ -50,36 +47,28 @@ class pemasukancontroller extends Controller
 
     public function edit(pemasukan $pemasukan): View
     {
-        return view('pemasukan.edit', compact('pemasukan'))->with([
-            "title" => "ubah pemasukan",
-            "pemasukan" => pemasukan::all()
+        return view('pemasukan.edit', [
+            "title" => "Ubah pemasukan",
+            "pemasukan" => $pemasukan
         ]);
     }
+    
 
-    public function update(pemasukan $pemasukan, Request $request): RedirectResponse
+    public function update(Request $request, pemasukan $pemasukan): RedirectResponse
     {
         $request->validate([
             "pekerjaan" => "required",
             "pelaksanaan" => "required",
             "lokasi" => "required",
-            "foto" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048", // Image validation
         ]);
-
-        $pemasukan = $request->all();
-
-        // Handle the image file upload
-        if ($request->hasFile('foto')) {
-            // Delete the old image if it exists
-            if ($pemasukan->foto) {
-                Storage::disk('public')->delete($pemasukan->foto);
-            }
-            $pemasukan['foto'] = $request->file('foto')->store('uploads', 'public');
-        }
-
-        $pemasukan->update($pemasukan);
-
-        return redirect()->route('pemasukan.index')->with('updated', 'laporan Berhasil Diubah');
+    
+        $data = $request->all();
+    
+        $pemasukan->update($data);
+    
+        return redirect()->route('pemasukan.index')->with('updated', 'Laporan berhasil diubah');
     }
+    
 
     public function show(): View
     {
@@ -95,10 +84,7 @@ class pemasukancontroller extends Controller
         $pemasukan = pemasukan::findOrFail($id);
 
         // Delete the image if it exists
-        if ($pemasukan->foto) {
-            Storage::disk('public')->delete($pemasukan->foto);
-        }
-
+       
         $pemasukan = Pemasukan::findOrFail($id);
     $pemasukan->delete();
 

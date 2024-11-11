@@ -33,7 +33,6 @@
                         <th>Pekerjaan</th>
                         <th>Pelaksanaan</th>
                         <th>Lokasi</th>
-                        <th>Foto</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -44,13 +43,6 @@
                         <td>{{ $dt->pekerjaan }}</td>
                         <td>{{ $dt->pelaksanaan }}</td>
                         <td>{{ $dt->lokasi }}</td>
-                        <td>
-                            @if($dt->gambar)
-                                <img src="{{ asset('storage/fotos/' . $dt->gambar) }}" width="50" alt="gambar">
-                            @else
-                                <center><i class="fas fa-file-image" style="font-size: 20px; color: gray;"></i></center>
-                            @endif
-                        </td>
                         <td>
                             <div class="btn-group table-action-buttons">
                                 <a class="btn btn-warning" href="{{ route('pemasukan.edit', $dt->id) }}" title="Edit">
