@@ -26,5 +26,21 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('pemasukans');
+
+        Schema::table('pemasukans', function(Blueprint $table) {
+            $table->dropForeign('pemasukans_tambahdatas_id_foreign');
+        });
+        Schema::table('pemasukans', function(Blueprint $table) {
+            $table->dropIndex('pemasukans_tambahdatas_id_foreign');
+        });
+        Schema::table('pemasukans', function(Blueprint $table) {
+            $table->dropForeign('pemasukans_tambahdatas_id_foreign');
+        });
+        Schema::table('pemasukans', function(Blueprint $table) {
+            $table->dropIndex('pemasukans_tambahdatas_id_foreign');
+        });
+              
+        
     }
+    
 };

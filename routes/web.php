@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\pemasukancontroller;
+use App\Http\Controllers\Tambahdatacontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,4 @@ Route::resource('pemasukan',pemasukancontroller::class)->except('destroy','updat
 Route::resource('pemasukan', PemasukanController::class);
 Route::get('/pemasukan/{id}/edit', [PemasukanController::class, 'edit'])->name('pemasukan.edit');
 Route::put('/pemasukan/{id}', [PemasukanController::class, 'update'])->name('pemasukan.update');
+Route::resource('tambahdata', Tambahdatacontroller::class);

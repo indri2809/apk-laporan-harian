@@ -14,7 +14,7 @@
 </style>
 @endsection
 
-@section('judulh1', )
+
 
 @section('konten')
 <div class="col-md-12">
@@ -22,28 +22,26 @@
         <div class="card-header">
             <h2 class="card-title"></h2>
             <a type="button" class="btn btn-success float-right" href="{{ route('tambahdata.create') }}">
-                <i class="fas fa-plus"></i> Tambah data
+                <i class="fas fa-plus"></i> Tamah data
             </a>
         </div>
         <div class="card-body">
-        
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>No</th>
                         <th>Hari</th>
-                        <th>Pekerjaan yang di laksanakan</th>
-                        <th>Tenaga kerja </th>
-                        <th>Peralatan yang di gunakan</th>
-                        <th>Bahan (diterima/ditolak)</th>
+                        <th>Pekerjaan yang di lakukan</th>
+                        <th>Tenaga kerja</th>
+                        <th>Peralatan yang digunakan</th>
+                        <th>Bahan diterima dan ditolak</th>
                         <th>cuaca</th>
-                        <th>Masalah dan pemecahan</th>
-                        <th>Perintah yang di berikan</th>
-                        <th>foto</th>
+                        <th>masalah dan pemecahan</th>
+                        <th>Perintah yang diberikan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pemasukan as $dt)
+                    @foreach($tambahdata as $dt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $dt->hari }}</td>
@@ -54,7 +52,8 @@
                         <td>{{ $dt->cuaca }}</td>
                         <td>{{ $dt->masalah_dan_pemecahan }}</td>
                         <td>{{ $dt->perintah_yang_diberikan }}</td>
-                        <td>{{ $dt->foto }}</td>
+                        <td>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -66,18 +65,18 @@
 
 @section('tambahanJS')
 <!-- DataTables & Plugins -->
-<script src="asset('plugins/datatables/jquery.dataTables.min.js')"></script>
-<script src="asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')"></script>
-<script src="asset('plugins/datatables-responsive/js/dataTables.responsive.min.js')"></script>
-<script src="asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js')"></script>
-<script src="asset('plugins/datatables-buttons/js/dataTables.buttons.min.js')"></script>
-<script src="asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js')"></script>
-<script src="asset('plugins/jszip/jszip.min.js')"></script>
-<script src="asset('plugins/pdfmake/pdfmake.min.js')"></script>
-<script src="asset('plugins/pdfmake/vfs_fonts.js')"></script>
-<script src="asset('plugins/datatables-buttons/js/buttons.html5.min.js')"></script>
-<script src="asset('plugins/datatables-buttons/js/buttons.print.min.js')"></script>
-<script src="asset('plugins/datatables-buttons/js/buttons.colVis.min.js')"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- Toastr -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @endsection
@@ -86,11 +85,15 @@
 <script>
 $(function() {
     $("#example1").DataTable({
-        "responsive": true,
         "paging":true,
+        "responsive": false,
         "lengthChange": true,
-        "autoWidth": false,
         "scrollX":true,
+        "autoWidth": false,
+        "fixedColumns":{
+            leftColumns:2
+        },
+        
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 });
 
